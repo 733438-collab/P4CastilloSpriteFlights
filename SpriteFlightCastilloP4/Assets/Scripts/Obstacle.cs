@@ -13,7 +13,8 @@ public class Obstacle : MonoBehaviour
     public float maxSpeed = 150f;
 
     public float maxSpinSpeed = 10f;
-     
+
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,4 +36,6 @@ public class Obstacle : MonoBehaviour
     {
         
     }
+
+
 }

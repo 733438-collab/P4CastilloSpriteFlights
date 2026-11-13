@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,13 +11,15 @@ public class PlayerController : MonoBehaviour
     public float thrustForce = 1f;
     public GameObject boosterFlame;
     public float scoreMultiplier = 10f;
-    public float maxSpeed = 5f;
+    public float maxSpeed = 10f;
 
     Rigidbody2D rb;
 
     public UIDocument uiDocument;
 
     private Label scoreText;
+
+    private Button restartButton;
 
     public GameObject explosionEffect;
 
@@ -26,6 +29,9 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+        restartButton.style.display = DisplayStyle.None;
+        restartButton.clicked += ReloadScene;
     }
 
     // Update is called once per frame
@@ -66,8 +72,13 @@ public class PlayerController : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(explosionEffect, transform.position, transform.rotation);
-    }  
+        restartButton.style.display = DisplayStyle.Flex;
+    }
 
+    void ReloadScene()
+    {
+    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 
 }
