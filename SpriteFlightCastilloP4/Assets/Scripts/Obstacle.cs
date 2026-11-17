@@ -14,6 +14,8 @@ public class Obstacle : MonoBehaviour
 
     public float maxSpinSpeed = 10f;
 
+    public GameObject bounceEffect;
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -36,6 +38,9 @@ public class Obstacle : MonoBehaviour
     {
         
     }
+
+   
+   
 
 
 }
