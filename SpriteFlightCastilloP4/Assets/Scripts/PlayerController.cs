@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
 
     public GameObject explosionEffect;
 
+    public GameObject borderParent;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
         Instantiate(explosionEffect, transform.position, transform.rotation);
         restartButton.style.display = DisplayStyle.Flex;
+        borderParent.SetActive(false);
     }
 
     void ReloadScene()
